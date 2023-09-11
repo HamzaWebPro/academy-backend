@@ -1,0 +1,19 @@
+{
+  "name": "academy-backend",
+  "version": "1.0.0",
+  "description": "This is a blog site project for edulife institute",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alenpragma/academy-backend.git"
+  },
+  "author": "Edulife Agency",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alenpragma/academy-backend/issues"
+  },
+  "homepage": "https://github.com/alenpragma/academy-backend#readme"
+}
