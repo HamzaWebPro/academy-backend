@@ -24,9 +24,7 @@ async function login(req, res) {
     if (!result) {
         return res.json({ error: "Credential error" });
       }
-    return res.json({
-      error: "Login Successfull",
-    });
+    return res.json(existingEmail);
   });
 }
 

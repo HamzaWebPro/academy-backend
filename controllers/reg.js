@@ -34,7 +34,7 @@ async function registration(req, res) {
     return res.json({
       fullName: user.fullName,
       email: user.email,
-      error: "Registration successfull,please check your email",
+      error: "Registration successfull!!",
     });
   });
 }
