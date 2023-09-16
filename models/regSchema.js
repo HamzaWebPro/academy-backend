@@ -22,7 +22,7 @@ const regSchema = new Schema({
   role: {
     type: String,
     default: "admin",
-    enum: ["superAdmin", "admin"],
+    enum: ["owner","superAdmin", "admin"],
   },
   updated: {
     type: Date,
