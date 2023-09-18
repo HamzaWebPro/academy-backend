@@ -3,7 +3,7 @@ const User = require("../models/regSchema")
 async function getAllAdmins(req, res) {
   try {
     // Use the User model to fetch all users from the database
-    const users = await User.find({}); // Excluding the password field
+    const users = await User.find({}).populate("blog") // Excluding the password field
 
     // Send the list of users as a JSON response
     return res.json({ users });
