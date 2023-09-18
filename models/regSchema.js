@@ -22,7 +22,7 @@ const regSchema = new Schema({
   role: {
     type: String,
     default: "admin",
-    enum: ["owner","superAdmin", "admin"],
+    enum: ["owner", "superAdmin", "admin"],
   },
   updated: {
     type: Date,
@@ -38,6 +38,12 @@ const regSchema = new Schema({
   linkedinID: {
     type: String,
   },
+  blog: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Blog",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", regSchema);
