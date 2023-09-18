@@ -31,6 +31,7 @@ async function registration(req, res) {
     });
     await user.save();
 
+   
     return res.json({
       fullName: user.fullName,
       email: user.email,

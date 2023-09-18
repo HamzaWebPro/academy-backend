@@ -1,8 +1,10 @@
 const Blog = require("../models/blogSchema");
+const User = require("../models/regSchema")
 
 // Controller function to create a new blog post with authentication
 const createBlog = async (req, res) => {
-  const { title, content, imageUrl, category, author,authorID,authorEmail } = req.body;
+  const { title, content, imageUrl, category, author, authorID, authorEmail } =
+    req.body;
 
   // Check for empty fields
   if (!title || !content || !imageUrl || !category || !author) {
@@ -10,22 +12,25 @@ const createBlog = async (req, res) => {
   }
 
   // Create a new blog post
-  try {
-    const newBlog = await Blog.create({
-      title,
-      content,
-      imageUrl,
-      category,
-      author,
-      authorID,
-      authorEmail
-    });
 
-    res.status(201).json(newBlog);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
+  const newBlog = await Blog({
+    title,
+    content,
+    imageUrl,
+    category,
+    author,
+    authorID,
+    authorEmail,
+  });
+
+  await newBlog.save();
+  await User.findOneAndUpdate(
+    { _id: newBlog.authorID },
+    { $push: { blog: newBlog._id } },
+    { new: true }
+  );
+
+  res.json({ message: "Blog Created Successfully" });
 };
 
 module.exports = createBlog;
