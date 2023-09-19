@@ -3,7 +3,7 @@ const User = require("../models/regSchema")
 
 // Controller function to create a new blog post with authentication
 const createBlog = async (req, res) => {
-  const { title, content, imageUrl, category, author, authorID, authorEmail } =
+  const { title, content, imageUrl, category, author,status, authorID, authorEmail } =
     req.body;
 
   // Check for empty fields
@@ -18,6 +18,7 @@ const createBlog = async (req, res) => {
     content,
     imageUrl,
     category,
+    status,
     author,
     authorID,
     authorEmail,
