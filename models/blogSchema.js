@@ -26,8 +26,6 @@ const blogSchema = new Schema({
   },
   status: {
     type: String,
-    default: "pending",
-    enum: ["approved", "rejected" ,"pending" ],
   },
   authorID: {
     type: Schema.Types.ObjectId,
