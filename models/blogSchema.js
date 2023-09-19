@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-
 // Define the Blog schema
 const blogSchema = new Schema({
   title: {
@@ -24,7 +23,11 @@ const blogSchema = new Schema({
   },
   author: {
     type: String,
-   
+  },
+  status: {
+    type: String,
+    default: "pending",
+    enum: ["approved", "rejected" ,"pending" ],
   },
   authorID: {
     type: Schema.Types.ObjectId,
