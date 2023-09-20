@@ -1,22 +1,37 @@
 const Blog = require("../models/blogSchema");
-const User = require("../models/regSchema")
+const User = require("../models/regSchema");
+
+
+
+
 
 // Controller function to create a new blog post with authentication
 const createBlog = async (req, res) => {
-  const { title, content, imageUrl, category, author,status, authorID, authorEmail } =
-    req.body;
+  const {
+    title,
+    content,
+    imageUrl,
+    category,
+    author,
+    status,
+    authorID,
+    authorEmail,
+  } = req.body;
+  console.log('====================================');
+  console.log(req.file.filename);
+  console.log('====================================');
 
   // Check for empty fields
-  if (!title || !content || !imageUrl || !category || !author) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+  // if (!title || !content || !imageUrl || !category || !author) {
+  //   return res.status(400).json({ message: "All fields are required" });
+  // }
 
   // Create a new blog post
 
   const newBlog = await Blog({
     title,
     content,
-    imageUrl,
+    imageUrl: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
     category,
     status,
     author,
