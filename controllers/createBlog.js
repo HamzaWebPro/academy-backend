@@ -10,19 +10,17 @@ const createBlog = async (req, res) => {
   const {
     title,
     content,
-    imageUrl,
+    image,
     category,
     author,
     status,
     authorID,
     authorEmail,
   } = req.body;
-  console.log('====================================');
-  console.log(req.file.filename);
-  console.log('====================================');
+ 
 
   // Check for empty fields
-  // if (!title || !content || !imageUrl || !category || !author) {
+  // if (!title || !content || !image || !category || !author) {
   //   return res.status(400).json({ message: "All fields are required" });
   // }
 
@@ -31,7 +29,7 @@ const createBlog = async (req, res) => {
   const newBlog = await Blog({
     title,
     content,
-    imageUrl: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
+    image: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
     category,
     status,
     author,
