@@ -20,7 +20,7 @@ let updateBlog = async (req, res) => {
       {
         title,
         content,
-        image: `https://academy-backend-95ag.onrender.com/uploads/${req.file.filename}`,
+        image: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
         category,
         status,
         author,
