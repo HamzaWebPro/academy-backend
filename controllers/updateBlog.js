@@ -6,7 +6,7 @@ let updateBlog = async (req, res) => {
       _id,
       title,
       content,
-    //   image,
+      image,
       category,
       status,
       author,
@@ -20,7 +20,7 @@ let updateBlog = async (req, res) => {
       {
         title,
         content,
-        // image: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
+        image: `${process.env.IMG_PATH}/uploads/${req.file.filename}`,
         category,
         status,
         author,
