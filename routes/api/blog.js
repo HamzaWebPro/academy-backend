@@ -6,14 +6,15 @@ const multer = require("multer");
 const getAllBlogs = require("../../controllers/getAllBlogs");
 const approveBlog = require("../../controllers/approveBlog");
 const { getPendingBlogs } = require("../../controllers/getPendingBlogs");
+const PinPost = require("../../models/pinPostSchema");
+const updatePinPost = require("../../controllers/pinPost");
+const getAllPinPosts = require("../../controllers/getPinPost");
 const _ = express.Router();
 
 // multer image processing 1
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads");
-
-
   },
   filename: function (req, file, cb) {
     console.log("2", req.file);
@@ -34,8 +35,6 @@ const upload = multer({ storage: storage });
 const storage2 = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads");
-
-
   },
   filename: function (req, file, cb) {
     console.log("2", req.file);
@@ -58,5 +57,7 @@ _.post("/deleteBlog", deleteBlogById);
 _.post("/approveBlog", approveBlog);
 _.get("/getBlog", getAllBlogs);
 _.get("/getPendingBlogs", getPendingBlogs);
+_.get("/getpinpost", getAllPinPosts);
+_.post("/pinpost", updatePinPost);
 
 module.exports = _;
