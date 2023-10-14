@@ -4,35 +4,35 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    // required: true,
   },
   content: {
     type: String,
-    required: true,
+    // required: true,
   },
   image: {
     type: String,
   },
   category: {
     type: String,
-    required: true,
+    // required: true,
   },
   author: {
     type: String,
-    required: true,
+    // required: true,
   },
   status: {
     type: String,
-    required: true,
+    // required: true,
   },
   authorID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User", // Assuming you have a "User" model for authors
-    required: true,
+    // required: true,
   },
   authorEmail: {
     type: String,
-    required: true,
+    // required: true,
   },
   createdAt:{
     type:Date,
